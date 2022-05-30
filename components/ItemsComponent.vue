@@ -2,7 +2,7 @@
     <div>
     <h1>Items</h1>
     <ul>
-    <ItemComponent  v-for="item in items" :key="item.id" :item="item" @changeStatus="onChangeStatus"></ItemComponent>    
+    <ItemComponent  v-for="item in items" :key="item.id" :item="item" ></ItemComponent>    
     </ul>
     </div>
 </template>
@@ -15,11 +15,6 @@ export default{
             default(){
                  return []
             }
-        }
-    },
-    methods: {
-        onChangeStatus(id){            
-            this.$emit('changeStatus', id)
         }
     }
 }

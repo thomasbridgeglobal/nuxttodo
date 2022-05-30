@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
+
 export default{
     name: "AddItem", 
     data(){
@@ -17,11 +19,12 @@ export default{
         }
     },
     methods: {
+        ...mapActions(['addItemToList']),
         addItem(){
-            if(this.newItem!==''){
-                this.$emit('add', this.newItem)
+            if(this.newItem !== '') {
+                this.addItemToList(this.newItem)
                 this.newItem = ''
-            }            
+            }
         }
     }
 }

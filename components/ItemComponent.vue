@@ -10,14 +10,16 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex';
+
 export default{
     name: 'ItemComponent',
     props: ['item'], 
     methods: {
-      onClick(){
-        this.$emit('changeStatus', this.item.id)
-        // this.checked = true;
-      }
+        ...mapActions(['changeStatus']),
+        onClick(){        
+            this.changeStatus(this.item.id)
+        }
     }
 }
 </script>

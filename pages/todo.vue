@@ -8,8 +8,8 @@
     <!--Container-->
 	<div class="container w-full md:max-w-3xl mx-auto pt-20">
         <h1>{{ title | lowercase }}</h1>
-        <AddItem @add="addItem"/>
-        <ItemsComponent :items="items" @changeStatus="onChangeStatus"/>        
+        <AddItem />
+        <ItemsComponent :items="items"/>        
 	</div>
 	<!--/container-->
     <Footer />
@@ -17,34 +17,17 @@
 </template>
 
 <script>
-
-// import _ from 'underscore'
-const _ = require('underscore');
-const { v4: uuidv4 } = require('uuid');
-
+import {mapGetters} from 'vuex'
 
 export default {
     name: "ToDoPage",
     data() {
         return {
-            title: "Todo List",
-            // items: [{ id: "iid", text: 'Bananas', checked: true },{ text: 'Apples', checked: false }]
-            items: []
-        };
-    },
-    methods: {
-        addItem(text){
-            this.items.push({
-                id: uuidv4(),
-                text,
-                checked: false
-            })
-        },
-        onChangeStatus(id){
-            // const index = this.items.findIndex(item => item.id === id);
-            // this.items[index].checked = true;
-            _.findWhere(this.items, { id }).checked = true            
+            title: "Todo List"
         }
-    }
+    },
+    computed: mapGetters({
+      items: 'getItems'
+    })
 }
 </script>
