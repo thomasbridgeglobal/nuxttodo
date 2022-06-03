@@ -9,6 +9,8 @@
 	<div class="container w-full md:max-w-3xl mx-auto pt-20">
         <h1>{{ title  }}</h1>
         <ShoppingListItem />
+        <hr>
+        <ShoppingListCart />
 	</div>
 	<!--/container-->
     <Footer />

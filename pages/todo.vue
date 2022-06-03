@@ -1,15 +1,15 @@
 <template>
-  <div>  
+  <div>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css"
       rel="stylesheet"
-    />        
+    />
     <Header />
     <!--Container-->
 	<div class="container w-full md:max-w-3xl mx-auto pt-20">
         <h1>{{ title | lowercase }}</h1>
         <AddItem @add="addItem"/>
-        <ItemsComponent :items="items" @changeStatus="onChangeStatus"/>        
+        <ItemsComponent :items="items" @changeStatus="onChangeStatus"/>
 	</div>
 	<!--/container-->
     <Footer />
@@ -43,7 +43,7 @@ export default {
         onChangeStatus(id){
             // const index = this.items.findIndex(item => item.id === id);
             // this.items[index].checked = true;
-            _.findWhere(this.items, { id }).checked = true            
+            _.findWhere(this.items, { id }).checked = true
         }
     }
 }
